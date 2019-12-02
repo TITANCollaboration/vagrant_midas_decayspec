@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "jonr667/midas_triumf_titan_decayspec"
-  config.vm.box_version = "0.2"
+  config.vm.box_version = "0.3"
   config.vm.network "public_network", type: "dhcp"
 
 VAGRANT_COMMAND = ARGV[0]
