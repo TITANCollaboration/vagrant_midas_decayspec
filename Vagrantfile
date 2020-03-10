@@ -3,8 +3,9 @@ Vagrant.configure("2") do |config|
   config.vm.box_version = "0.4"
   config.vm.hostname = "titan-decayspec"
   config.vm.network "public_network", type: "dhcp", use_dhcp_assigned_default_route: true, bridge: "enp11s0", mac: "080027444CA6"
-
-  config.vm.synced_folder "experiment_data/", "/home/ebit/experiments", owner: "ebit", group: "ebit"
+  config.vm.network "private_network", type: "dhcp"
+  config.vm.synced_folder "experiment_data/", "/home/ebit/experiments", type: "nfs" # owner: "ebit", group: "ebit" 
+  config.vm.synced_folder "daq/", "/home/ebit/daq", type: "nfs" #owner: "ebit", group: "ebit"
 
 VAGRANT_COMMAND = ARGV[0]
 if VAGRANT_COMMAND == "ssh"
